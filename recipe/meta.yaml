@@ -34,6 +34,7 @@ requirements:
     - ipython
     - qtconsole
     - matplotlib >=1.2.0
+    - pyqt
     # optional dep causing lots of problems
     #- pyopengl
 
