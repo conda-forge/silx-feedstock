@@ -23,6 +23,7 @@ requirements:
     - python
     - setuptools
     - numpy
+    - qt
 
   run:
     - python
