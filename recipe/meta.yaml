@@ -41,6 +41,9 @@ test:
   imports:
     - silx
     - silx.test
+    - silx.gui.qt
+  downstreams:
+    - pyfai
 
 about:
   home: https://github.com/silx-kit/silx
