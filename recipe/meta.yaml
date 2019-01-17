@@ -19,12 +19,12 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - {{ cdt('mesa-libgl-devel') }}  # [linux]
   host:
     - python
     - setuptools
     - numpy
     - qt
+    - {{ cdt('mesa-libgl-devel') }}  # [linux]
 
   run:
     - python
