@@ -1,6 +1,6 @@
 {% set name = "silx" %}
-{% set version = "0.10.0" %}
-{% set sha256 = "404c4d4cec4cd17b2db0ba335393283edef5054911f8753512e895e61b54bd36" %}
+{% set version = "0.10.1" %}
+{% set sha256 = "145e53608d1f9b7529f7fbeacd169609b28ea3569cb9fe7d3da5a2f38b4ced3d" %}
 
 package:
   name: {{ name|lower }}
