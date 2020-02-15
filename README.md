@@ -224,5 +224,7 @@ Feedstock Maintainers
 =====================
 
 * [@CJ-Wright](https://github.com/CJ-Wright/)
+* [@t20100](https://github.com/t20100/)
 * [@tschoonj](https://github.com/tschoonj/)
+* [@vallsv](https://github.com/vallsv/)
 
