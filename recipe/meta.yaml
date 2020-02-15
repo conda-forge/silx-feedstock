@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . -vv --global-option build --global-option --force-cython "
 
 requirements:
@@ -36,7 +36,7 @@ requirements:
     - mako
     - ipython
     - qtconsole
-    - matplotlib >=1.2.0
+    - matplotlib-base >=1.2.0
     - python-dateutil
     # optional dep causing lots of problems
     #- pyopengl
