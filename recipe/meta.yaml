@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 2
 
 outputs:
   - name: silx-base
@@ -52,7 +52,7 @@ outputs:
       noarch: generic
     requirements:
       run:
-        - {{ pin_subpackage('silx-base', exact=True) }}
+        - {{ pin_subpackage('silx-base', max_pin="x.x.x.x") }}
         - mako
         - ipython
         - qtconsole
