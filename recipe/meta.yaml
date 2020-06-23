@@ -1,6 +1,6 @@
 {% set name = "silx" %}
-{% set version = "0.12.0" %}
-{% set sha256 = "2346ee44eb65ffa23c82d86f401282ea0fde0b813f897f178d901ec09889b9dc" %}
+{% set version = "0.13.0" %}
+{% set sha256 = "2853df6fe258f9a78ce6100ba81a19da6ca3e7aeffb815425a5992809932f24e" %}
 
 package:
   name: silx-base
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 2
+  number: 0
 
 outputs:
   - name: silx-base
@@ -39,8 +39,6 @@ outputs:
         - fabio >=0.9
         - h5py
         - six
-        - enum34  # [py2k]
-        - futures  # [py2k]
 
     test:
       imports:
@@ -69,9 +67,7 @@ about:
   license: MIT
   license_family: MIT
   license_file: copyright
-  summary: 'The silx project aims at providing a collection of Python packages
-  to support the development of data assessment, reduction and analysis
-  applications at synchrotron radiation facilities.'
+  summary: The silx project aims at providing a collection of Python packages to support the development of data assessment, reduction and analysis applications at synchrotron radiation facilities.
 
   description: |
     The silx project aims at providing a collection of Python packages to
