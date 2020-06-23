@@ -39,8 +39,6 @@ outputs:
         - fabio >=0.9
         - h5py
         - six
-        - enum34  # [py2k]
-        - futures  # [py2k]
 
     test:
       imports:
