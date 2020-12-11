@@ -31,7 +31,7 @@ outputs:
         - pip
         - python
         - setuptools
-        - numpy >=1.12
+        - numpy
       run:
         - python
         - setuptools
