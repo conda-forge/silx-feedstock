@@ -1,6 +1,6 @@
 {% set name = "silx" %}
-{% set version = "0.13.2" %}
-{% set sha256 = "0bc5a5a30499b9d620c795a20948151a4057aba16ff08dfe637f7a923b4697d4" %}
+{% set version = "0.14.0" %}
+{% set sha256 = "17c595fe18c9eb3403a9d1f0ee6ea7b523607043c46c944573ecf406f6997866" %}
 
 package:
   name: silx-base
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 2
+  number: 0
 
 outputs:
   - name: silx-base
@@ -31,7 +31,7 @@ outputs:
         - pip
         - python
         - setuptools
-        - numpy >=1.12
+        - numpy
       run:
         - python
         - setuptools
