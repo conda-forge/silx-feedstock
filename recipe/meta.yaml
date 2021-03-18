@@ -1,6 +1,6 @@
 {% set name = "silx" %}
-{% set version = "0.14.0" %}
-{% set sha256 = "17c595fe18c9eb3403a9d1f0ee6ea7b523607043c46c944573ecf406f6997866" %}
+{% set version = "0.15.0" %}
+{% set sha256 = "edd086844f2da01cf18799a5689b88329dc605218eb55de16de3cfa5e211dfdf" %}
 
 package:
   name: silx-base
@@ -12,8 +12,8 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
-  skip: True         # [python_impl == 'pypy']
+  number: 0
+  skip: true  # [python_impl == 'pypy']
 
 outputs:
   - name: silx-base
