@@ -43,7 +43,6 @@ outputs:
         - {{ pin_compatible('numpy') }}
         - fabio >=0.9
         - h5py
-        - six
 
     test:
       imports:
@@ -63,7 +62,6 @@ outputs:
         - python-dateutil
         - pyqt
         - scipy
-        - pillow
         # optional dep causing lots of problems
         #- pyopengl
 
