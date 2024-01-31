@@ -47,7 +47,7 @@ outputs:
     test:
       imports:
         - silx
-        - silx.test
+        - silx.math # Imports cython extensions
       commands:
         - pip check
       requires:
