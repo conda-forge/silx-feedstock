@@ -1,4 +1,3 @@
-del pyproject.toml
-%PYTHON% -m pip install . -vv --no-deps --ignore-installed --global-option build --global-option --force-cython 
+set SILX_FORCE_CYTHON="True"
+%PYTHON% -m pip install --no-deps --no-build-isolation -vv .
 if errorlevel 1 exit 1
-

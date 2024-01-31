@@ -1,5 +1,3 @@
 #!/bin/bash
-echo "PYTHON: $PYTHON"
-rm pyproject.toml
-$PYTHON -m pip install . -vv --no-deps --ignore-installed --global-option build --global-option --force-cython 
-
+export SILX_FORCE_CYTHON="True"
+$PYTHON -m pip install --no-deps --no-build-isolation -vv .

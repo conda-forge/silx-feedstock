@@ -3,11 +3,10 @@
 {% set sha256 = "ad3dd42f62b0727507894399c8708cbe42c19972d3b191f1ae99426fcc766970" %}
 
 package:
-  name: silx-base
+  name: silx-split
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
@@ -32,38 +31,49 @@ outputs:
         - {{ compiler('c') }}
         - {{ compiler('cxx') }}
       host:
-        - cython
-        - pip
         - python
+        - pip
+        - wheel
         - setuptools
         - numpy
+        - cython >=0.29.31
       run:
         - python
-        - setuptools
         - {{ pin_compatible('numpy') }}
-        - fabio >=0.9
+        - packaging
         - h5py
+        - fabio >=0.9
 
     test:
       imports:
         - silx
         - silx.test
+      commands:
+        - pip check
+      requires:
+        - pip
 
   - name: silx
     build:
       noarch: generic
     requirements:
       run:
-        - {{ pin_subpackage('silx-base', max_pin="x.x.x.x") }}
+        - {{ pin_subpackage('silx-base', exact=True) }}
+        - pyopencl
         - mako
-        - ipython
         - qtconsole
-        - matplotlib
+        - matplotlib-base >=3.1.0
+        - pyopengl
         - python-dateutil
         - pyqt
+        - hdf5plugin
         - scipy
-        # optional dep causing lots of problems
-        #- pyopengl
+        - pillow
+        # Not available for all architectures+only used in tests
+        #- bitshuffle
+    test:
+      commands:
+        - silx --help
 
 about:
   home: https://github.com/silx-kit/silx
