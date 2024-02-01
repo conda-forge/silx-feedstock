@@ -70,7 +70,7 @@ outputs:
         - scipy
         - pillow
         # Not available for all architectures+only used in tests
-        #- bitshuffle
+        # - bitshuffle
     test:
       commands:
         - silx --help
