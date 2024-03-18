@@ -1,6 +1,6 @@
 {% set name = "silx" %}
-{% set version = "2.0.0" %}
-{% set sha256 = "ad3dd42f62b0727507894399c8708cbe42c19972d3b191f1ae99426fcc766970" %}
+{% set version = "2.0.1" %}
+{% set sha256 = "dcb7cfee6022fe851348b64bf51aa4d3c19d1a62f60f80507e8b5bb0b36cc1a7" %}
 
 package:
   name: silx-split
@@ -11,7 +11,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 2
+  number: 0
   skip: true  # [python_impl == 'pypy']
 
 outputs:
