@@ -1,6 +1,6 @@
 {% set name = "silx" %}
-{% set version = "2.0.1" %}
-{% set sha256 = "dcb7cfee6022fe851348b64bf51aa4d3c19d1a62f60f80507e8b5bb0b36cc1a7" %}
+{% set version = "2.1.0" %}
+{% set sha256 = "d30d06614426502c76bdd3052b8752837c80fc26374024238459df96c6e3adac" %}
 
 package:
   name: silx-split
@@ -29,6 +29,7 @@ outputs:
         - cython                                 # [build_platform != target_platform]
         - numpy                                  # [build_platform != target_platform]
         - {{ compiler('c') }}
+        - {{ stdlib("c") }}
         - {{ compiler('cxx') }}
       host:
         - python
@@ -43,6 +44,7 @@ outputs:
         - packaging
         - h5py
         - fabio >=0.9
+        - importlib-resources  # [py==38]
 
     test:
       imports:
@@ -69,8 +71,6 @@ outputs:
         - hdf5plugin
         - scipy
         - pillow
-        # Not available for all architectures+only used in tests
-        # - bitshuffle
     test:
       commands:
         - silx --help
