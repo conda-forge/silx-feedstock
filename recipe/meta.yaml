@@ -44,6 +44,7 @@ outputs:
         - packaging
         - h5py
         - fabio >=0.9
+        - importlib-resources  # [py==38]
 
     test:
       imports:
@@ -70,8 +71,6 @@ outputs:
         - hdf5plugin
         - scipy
         - pillow
-        # Not available for all architectures+only used in tests
-        # - bitshuffle
     test:
       commands:
         - silx --help
