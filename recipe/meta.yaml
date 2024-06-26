@@ -11,7 +11,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   skip: true  # [python_impl == 'pypy']
 
 outputs:
@@ -40,7 +40,6 @@ outputs:
         - cython >=0.29.31
       run:
         - python
-        - {{ pin_compatible('numpy') }}
         - packaging
         - h5py
         - fabio >=0.9
