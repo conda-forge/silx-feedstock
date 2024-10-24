@@ -1,6 +1,6 @@
 {% set name = "silx" %}
-{% set version = "2.1.1" %}
-{% set sha256 = "2df0915a452ba906fbcf18854cf872fe0f455a134c5d345b84481e938b596f92" %}
+{% set version = "2.1.2" %}
+{% set sha256 = "51ea7f0641f79e01836cf315a6d69beb848a05b386a9ad2a6b35284f8ee276a5" %}
 
 package:
   name: silx-split
