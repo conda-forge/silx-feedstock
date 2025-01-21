@@ -1,13 +1,13 @@
 {% set name = "silx" %}
-{% set version = "2.1.2" %}
-{% set sha256 = "51ea7f0641f79e01836cf315a6d69beb848a05b386a9ad2a6b35284f8ee276a5" %}
+{% set version = "2.2.0" %}
+{% set sha256 = "7dfd98529d068ce2809b693e78117e5a5625a3c67b8265231604c54ef3b14732" %}
 
 package:
   name: silx-split
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
 
 build:
