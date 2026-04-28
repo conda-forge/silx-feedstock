@@ -106,7 +106,10 @@ outputs:
         - hdf5plugin
         - qtawesome
         # full
-        - pyside6 >= 6.5
+        # pyside6 and pyqt6 unavailable for ppc64le
+        - if: linux and ppc64le
+          then: pyqt
+          else: pyside6 >= 6.5
     tests:
       - python:
           pip_check: true
