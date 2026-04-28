@@ -70,7 +70,17 @@ outputs:
       - python:
           imports:
           - silx
-          - silx.math # Imports cython extensions
+          - silx.image.bilinear
+          - silx.image.marchingsquares
+          - silx.image.shapes
+          - silx.io.specfile
+          - silx.math.colormap
+          - silx.math.combo
+          - silx.math.fit
+          - silx.math.histogram
+          - silx.math.interpolate
+          - silx.math.marchingcubes
+          - silx.math.medianfilter
           pip_check: true
 
   - package:
