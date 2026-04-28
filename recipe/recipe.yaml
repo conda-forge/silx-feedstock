@@ -5,6 +5,7 @@ context:
   build_number: '0'
 
 recipe:
+  name: silx-split
   version: ${{ version }}
 
 source:
