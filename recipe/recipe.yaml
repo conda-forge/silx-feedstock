@@ -1,0 +1,138 @@
+schema_version: 1
+
+context:
+  version: 3.0.0
+  build_number: '0'
+
+recipe:
+  name: silx-split
+  version: ${{ version }}
+
+source:
+- url: https://pypi.org/packages/source/s/silx/silx-${{ version }}.tar.gz
+  sha256: c40c084a134e55103be9f3d51ebc7ee8834cf0c68a6e63fcb1fb5de5b8725e91
+
+build:
+  number: ${{ build_number }}
+  skip: match(python, "<3.10")
+
+outputs:
+  - package:
+      name: silx-base
+    build:
+      script:
+        # Cross-compilation stuff vendored from numpy-feedstock
+        # necessary for cross-compilation to point to the right env
+        - if: build_platform != target_platform
+          then:
+            - export PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig
+            - echo "python = '${PREFIX}/bin/python'" >> ${CONDA_PREFIX}/meson_cross_file.txt
+        - if: unix
+          then:
+            - MESON_ARGS_REDUCED="$(echo $MESON_ARGS | sed 's/--buildtype release //g')"
+            - ${{ PYTHON }} -m pip install -vv --no-deps --ignore-installed . -Csetup-args=${MESON_ARGS_REDUCED// / -Csetup-args=}
+          else: ${{ PYTHON }} -m pip install -vv --no-deps --ignore-installed .
+      python:
+        entry_points:
+        - silx = silx.__main__:main
+    requirements:
+      build:
+        - if: build_platform != target_platform
+          then:
+            - python
+            - cross-python_${{ target_platform }}
+            - cython
+            - meson-python
+            - ninja
+        - ${{ compiler('c') }}
+        - ${{ stdlib('c') }}
+        - ${{ compiler('cxx') }}
+        - if: osx
+          then: llvm-openmp
+        - if: linux
+          then: libgomp
+      host:
+        - python
+        - pip
+        - cython
+        - meson-python
+        - if: osx
+          then: llvm-openmp
+        - if: linux
+          then: libgomp
+      run:
+        - python
+        - numpy
+        - packaging
+        - h5py >=3
+        - fabio
+        - pydantic >=2
+    tests:
+      - python:
+          imports:
+          - silx
+          - silx.image.bilinear
+          - silx.image.marchingsquares
+          - silx.image.shapes
+          - silx.io.specfile
+          - silx.math.colormap
+          - silx.math.combo
+          - silx.math.fit
+          - silx.math.histogram
+          - silx.math.interpolate
+          - silx.math.marchingcubes
+          - silx.math.medianfilter
+          pip_check: true
+
+  - package:
+      name: silx
+    build:
+      noarch: generic
+    requirements:
+      run:
+        - ${{ pin_subpackage('silx-base', exact=True) }}
+        # opencl optional dependencies
+        - pyopencl
+        - mako
+        # full_no_qt
+        - qtconsole
+        - matplotlib-base >=3.6
+        - pyopengl
+        - python-dateutil
+        - scipy
+        - pooch
+        - pillow
+        - pint
+        - hdf5plugin
+        - qtawesome
+        # full
+        # pyside6 and pyqt6 unavailable for ppc64le
+        - if: linux and ppc64le
+          then: pyqt
+          else: pyside6 >= 6.5
+    tests:
+      - python:
+          pip_check: true
+      - script:
+        - silx --help
+
+about:
+  license: MIT
+  license_file: copyright
+  homepage: https://www.silx.org/
+  repository: https://github.com/silx-kit/silx
+  documentation: http://www.silx.org/doc/silx/latest/
+  summary: 'Silx tool-kit: collection of Python packages to support the development of data assessment, reduction and analysis applications at synchrotron radiation facilities'
+  description: |
+    The silx project aims at providing a collection of Python packages to
+    support the development of data assessment, reduction and analysis
+    applications at synchrotron radiation facilities. It aims at providing
+    reading/writing different file formats, data reduction routines and a set
+    of Qt widgets to browse and visualize data.
+
+extra:
+  recipe-maintainers:
+    - CJ-Wright
+    - tschoonj
+    - vallsv
+    - t20100
