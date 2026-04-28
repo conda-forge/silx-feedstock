@@ -46,11 +46,19 @@ outputs:
         - ${{ compiler('c') }}
         - ${{ stdlib('c') }}
         - ${{ compiler('cxx') }}
+        - if: osx
+          then: llvm-openmp
+        - if: linux
+          then: libgomp
       host:
         - python
         - pip
         - cython
         - meson-python
+        - if: osx
+          then: llvm-openmp
+        - if: linux
+          then: libgomp
       run:
         - python
         - numpy
