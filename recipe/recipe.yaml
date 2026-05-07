@@ -1,16 +1,16 @@
 schema_version: 1
 
 context:
-  version: 3.0.0
-  build_number: '0'
+  version: "3.0.1"
+  build_number: 0
 
 recipe:
   name: silx-split
   version: ${{ version }}
 
 source:
-- url: https://pypi.org/packages/source/s/silx/silx-${{ version }}.tar.gz
-  sha256: c40c084a134e55103be9f3d51ebc7ee8834cf0c68a6e63fcb1fb5de5b8725e91
+  - url: https://pypi.org/packages/source/s/silx/silx-${{ version }}.tar.gz
+    sha256: f1efd82d5be9fd5569c8570c6a92d7a2ac5e6f6bad950529037340aa7058c531
 
 build:
   number: ${{ build_number }}
@@ -34,7 +34,7 @@ outputs:
           else: ${{ PYTHON }} -m pip install -vv --no-deps --ignore-installed .
       python:
         entry_points:
-        - silx = silx.__main__:main
+          - silx = silx.__main__:main
     requirements:
       build:
         - if: build_platform != target_platform
@@ -70,18 +70,18 @@ outputs:
     tests:
       - python:
           imports:
-          - silx
-          - silx.image.bilinear
-          - silx.image.marchingsquares
-          - silx.image.shapes
-          - silx.io.specfile
-          - silx.math.colormap
-          - silx.math.combo
-          - silx.math.fit
-          - silx.math.histogram
-          - silx.math.interpolate
-          - silx.math.marchingcubes
-          - silx.math.medianfilter
+            - silx
+            - silx.image.bilinear
+            - silx.image.marchingsquares
+            - silx.image.shapes
+            - silx.io.specfile
+            - silx.math.colormap
+            - silx.math.combo
+            - silx.math.fit
+            - silx.math.histogram
+            - silx.math.interpolate
+            - silx.math.marchingcubes
+            - silx.math.medianfilter
           pip_check: true
 
   - package:
@@ -114,7 +114,7 @@ outputs:
       - python:
           pip_check: true
       - script:
-        - silx --help
+          - silx --help
 
 about:
   license: MIT
