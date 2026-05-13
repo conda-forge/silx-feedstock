@@ -87,7 +87,7 @@ outputs:
   - package:
       name: silx
     build:
-      noarch: generic
+      noarch: python
     requirements:
       run:
         - ${{ pin_subpackage('silx-base', exact=True) }}
