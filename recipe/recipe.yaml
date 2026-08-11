@@ -67,6 +67,7 @@ outputs:
         - h5py >=3
         - fabio
         - pydantic >=2
+        - filelock
     tests:
       - python:
           imports:
