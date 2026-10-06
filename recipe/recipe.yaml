@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "3.1.2"
+  version: "3.1.3"
   python_min: "3.10"
   build_number: 0
 
@@ -11,7 +11,7 @@ recipe:
 
 source:
   - url: https://pypi.org/packages/source/s/silx/silx-${{ version }}.tar.gz
-    sha256: fdeb922b95ea4507f788b3be1dad2ec0ccf8a87ff9bc3c63527779ba31daa392
+    sha256: 10b6505422f98c5f8798cd1bba0ab0b836ad91f28b39979f1eb09e13ba87ac1c
 
 build:
   number: ${{ build_number }}
